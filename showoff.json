@@ -1,0 +1,10 @@
+{
+  "name": "Stepup 2015 - Ruby",
+  "sections": [
+    { "section" : "object_model" },
+    { "section" : "modules" },
+    { "section" : "variables" },
+    { "section" : "testing" }
+  ],
+  "highlight": "github"
+}
