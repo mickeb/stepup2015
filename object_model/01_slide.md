@@ -410,14 +410,14 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     tax = dog_class.new("Micke", "Max")
     # => #<Tax:0x007f83c3095c38>
 
-!SLIDE small
+!SLIDE smaller
 ## Exempel
     @@@ ruby
     class MyClass
       class MyException < StandardError; end
     end
 
-!SLIDE small
+!SLIDE smaller
 ## Exempel
     @@@ ruby
     class MyClass
@@ -429,26 +429,26 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
       MyException = Class.new StandardError
     end
 
-!SLIDE center
+!SLIDE smaller center
 ## Översikt
 ![Ruby](http://skilldrick.co.uk/wp-content/uploads/2011/08/Ruby.png)
 ### http://skilldrick.co.uk/wp-content/uploads/2011/08/Ruby.png
 
-!SLIDE
+!SLIDE smaller
 # Lite förvirrande i alla fall
 
-!SLIDE
+!SLIDE smaller
 # "klassmetod"
 
-!SLIDE
+!SLIDE smaller
 # "klassmetod"
 ## ==
 # instansmetod i instanser av klassen Class
 
-!SLIDE
+!SLIDE smaller
 # klassmetod
 
-!SLIDE
+!SLIDE smaller
 ### Exempel 1:
     @@@ ruby
     class Animal
@@ -462,7 +462,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 
     Dog.common_sounds
 
-!SLIDE
+!SLIDE smaller
 ### Exempel 1:
     @@@ ruby
     class Animal
@@ -477,13 +477,13 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     Dog.common_sounds
     # => ["VOFF", "Mjau", "Grymt", "Bää"]
 
-!SLIDE small
+!SLIDE smaller
 ## Exempel 1.1:
     @@@ ruby
     class Animal
     end
 
-!SLIDE small
+!SLIDE smaller
 ## Exempel 1.1:
     @@@ ruby
     class Animal
@@ -491,7 +491,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 
     animal = Animal.new # => #<Dog:0x007fd5fc110560>
 
-!SLIDE small
+!SLIDE smaller
 ## Exempel 1.1:
     @@@ ruby
     class Animal
@@ -500,7 +500,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     animal = Animal.new # => #<Dog:0x007fd5fc110560>
     Animal.superclass # => Object
 
-!SLIDE small
+!SLIDE smaller
 ## Exempel 1.1:
     @@@ ruby
     class Animal
@@ -510,7 +510,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     Animal.superclass # => Object
     Object.methods
 
-!SLIDE small
+!SLIDE smaller
 ## Exempel 1.1:
     @@@ ruby
     class Animal
@@ -520,10 +520,10 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     Animal.superclass # => Object
     Object.methods # => [..., :new, ...]
 
-!SLIDE
+!SLIDE smaller
 ## Även "klassmetoder" ärvs
 
-!SLIDE small
+!SLIDE smaller
 ## Exempel 2:
     @@@ ruby
     max = Tax.new("Micke", "Max")
@@ -536,7 +536,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     puts max.color
     puts charlie.color
 
-!SLIDE small
+!SLIDE smaller
 ## Exempel 2:
     @@@ ruby
     max = Tax.new("Micke", "Max")
@@ -550,7 +550,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     puts charlie.color
     # => undefined method `color' for #<Dog:0x007fbaba12daf0>
 
-!SLIDE small
+!SLIDE smaller
 ## Exempel 2.1:
     @@@ ruby
     def Tax.color
@@ -559,7 +559,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 
     puts Tax.color
 
-!SLIDE small
+!SLIDE smaller
 ## Exempel 2.1:
     @@@ ruby
     class Tax < Dog
@@ -572,7 +572,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 
     puts Tax.color # => "brown"
 
-!SLIDE small
+!SLIDE smaller
 ## Exempel 2.1:
     @@@ ruby
     class Tax < Dog
@@ -593,26 +593,26 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 
     puts Tax.color # => "brown"
 
-!SLIDE
+!SLIDE smaller
 # Singletonklass
 ##(aka Metaclass, Shadowclass, Eigenclass)
 
-!SLIDE
+!SLIDE smaller
 
 ### Alla objekt i ruby har en singletonklass associerad till sig
 
-!SLIDE
+!SLIDE smaller
 
 ### Alla objekt i ruby har en singletonklass associerad till sig
 ### som inte existerar
 
-!SLIDE
+!SLIDE smaller
 
 ### Alla objekt i ruby har en singletonklass associerad till sig
 ### som inte existerar
 ### förrän den refereras
 
-!SLIDE small
+!SLIDE smaller
     @@@ ruby
 
     Tax.instance_methods(false) # => [:name, :sound]
