@@ -169,3 +169,112 @@
     puts animal.sound # => "voff!..gläffs!"
     puts animal.owner # => "Micke"
     puts animal.name # => "Max"
+
+!SLIDE
+# Förädisk enkel?
+
+!SLIDE
+    @@@ ruby
+    "VOFF".class # => String
+
+!SLIDE
+
+    @@@ ruby
+    "VOFF".class # => String
+    animal.class # => Animal
+
+!SLIDE
+
+    @@@ ruby
+    "VOFF".class # => String
+    animal.class # => Animal
+    dog.class # => Dog
+
+!SLIDE
+
+    @@@ ruby
+    "VOFF".class # => String
+    animal.class # => Animal
+    dog.class # => Dog
+
+###
+    @@@ ruby
+    Tax.class
+
+!SLIDE
+
+    @@@ ruby
+    "VOFF".class # => String
+    animal.class # => Animal
+    dog.class # => Dog
+
+###
+    @@@ ruby
+    Tax.class # => Class
+
+!SLIDE
+    @@@ ruby
+    Animal.class # => Class
+    Dog.class # => Class
+    Tax.class # => Class
+
+!SLIDE
+    @@@ ruby
+    Animal.class # => Class
+    Dog.class # => Class
+    Tax.class # => Class
+####
+    @@@ ruby
+    Class.class
+
+!SLIDE
+    @@@ ruby
+    Animal.class # => Class
+    Dog.class # => Class
+    Tax.class # => Class
+####
+    @@@ ruby
+    Class.class # => Class
+
+!SLIDE center
+## Översikt
+![Ruby](http://skilldrick.co.uk/wp-content/uploads/2011/08/Ruby.png)
+### http://skilldrick.co.uk/wp-content/uploads/2011/08/Ruby.png
+
+!SLIDE
+# Lite förvirrande i alla fall
+
+!SLIDE
+# "klassmetod"
+
+!SLIDE
+# "klassmetod"
+## ==
+# instansmetod i instanser av klassen Class
+
+!SLIDE
+    @@@ ruby
+    class Animal
+      def self.well_known_sounds
+        ["VOFF", "Mjau", "Grymt", "Bää"]
+      end
+    end
+
+    class Dog < Animal
+    end
+
+    Dog.well_known_sounds
+
+!SLIDE
+    @@@ ruby
+    class Animal
+      def self.well_known_sounds
+        ["VOFF", "Mjau", "Grymt", "Bää"]
+      end
+    end
+
+    class Dog < Animal
+    end
+
+    Dog.well_known_sounds
+    # => ["VOFF", "Mjau", "Grymt", "Bää"]
