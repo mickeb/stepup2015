@@ -1,16 +1,52 @@
 
+# class Animal
+#   def self.well_known_sounds
+#      ["VOFF", "Mjau", "Grymt", "Bää"]
+#   end
+#
+#   def foo
+#     puts "testtest"
+#   end
+# end
+#
+# class Dog < Animal
+#
+# end
+#
+# dog = Dog.new
+#
+# puts dog.class
+#
+# puts Dog.well_known_sounds
+
 class Animal
-  def self.well_known_sounds
-     ["VOFF", "Mjau", "Grymt", "Bää"]
+  def sound # #sound
+    "grymt!"
   end
 end
 
 class Dog < Animal
+  attr_reader :owner # Ger tillgång till @owner utifrån
 
+  def initialize(owner)
+    @owner = owner # instansvariabler prefixas med "@"
+  end
+
+  def sound
+    "VOFF!"
+  end
 end
 
-dog = Dog.new
+class Tax < Dog
+  attr_reader :name
 
-puts dog.class
+  def initialize(owner, name)
+    super(owner) # #super för anropa basklassens metod
 
-puts Dog.well_known_sounds
+    @name = name
+  end
+
+  def sound
+    "#{super.downcase}..gläffs!"
+  end
+end
