@@ -1,18 +1,60 @@
-!SLIDE small
+!SLIDE smaller
 # Rubys objektsmodell
 ## Förädisk enkel
 
-!SLIDE small
+!SLIDE smaller
 # Låt oss börja från grunden
 ## (men gå fort fram)
 
-!SLIDE small
+!SLIDE smaller
 # Klassdefinition
     @@@ ruby
     class Animal
     end
 
-!SLIDE small
+!SLIDE smaller
+
+# Konstanter
+
+* Börjar alltid med stor bokstav
+* Klasser, moduler eller värden
+* Kan näslas
+
+!SLIDE smaller
+
+## Börjar alltid med stor bokstav
+### MyConstant
+### MY_CONSTANT
+
+!SLIDE smaller
+
+## Klasser, moduler eller värden
+
+    @@@ ruby
+    class Animal; end
+    module House; end
+####
+    @@@ ruby
+    MY_CONSTANT = 1
+
+!SLIDE smaller
+
+## Kan näslas
+
+    @@@ ruby
+    class Animal
+      NUMBER_OF_SPECIES = 8700000
+    end
+
+    Animal::NUMBER_OF_SPECIES # => 8700000
+
+!SLIDE smaller
+# Klassdefinition
+    @@@ ruby
+    class Animal
+    end
+
+!SLIDE smaller
 # Instansiering
     @@@ ruby
     class Animal
@@ -21,20 +63,140 @@
     # Via "klassmetoden" .new
     animal = Animal.new
 
-!SLIDE small
+!SLIDE smaller
 # Instansiering
     @@@ ruby
     class Animal
     end
 
     # Via "klassmetoden" .new
-    animal = Animal.new # => #<Animal:0x007fd5fc110560>
+    animal = Animal.new
+    animal # => #<Animal:0x007fd5fc110560>
 
-!SLIDE small
+!SLIDE smaller
+
+# Lokala variabler
+
+* Börjar alltid med liten bokstav
+* Alltid snake_case
+* Scope
+
+!SLIDE smaller
+
+## Börjar alltid med liten bokstav + snake_case
+### Bra:
+
+    @@@ ruby
+    my_var = 42
+
+### Dåligt:
+    @@@ ruby
+    myVar = 42
+
+!SLIDE smaller
+
+## Scope
+
+Scope avgränsas nyckelorden class, module, def samt block syntax
+
+!SLIDE smaller
+## Scope
+    @@@ ruby
+    foo = "foo"
+
+    def baz
+      foo = "foo2"
+      puts foo
+      bar = "bar"
+    end
+
+    baz()
+
+    puts foo
+    puts bar
+
+!SLIDE smaller
+## Scope
+    @@@ ruby
+    foo = "foo"
+
+    def baz
+      foo = "foo2"
+      puts foo # => "foo2"
+      bar = "bar"
+    end
+
+    baz()
+
+    puts foo # => "foo"
+    puts bar # => undefined local variable or method `bar' for main:Object .....
+
+!SLIDE smaller
+## Scope
+    @@@ ruby
+    foo = "foo"
+
+    if true
+      foo = "foo2"
+      bar = "bar"
+    end
+
+    puts foo
+    puts bar
+
+!SLIDE smaller
+## Scope
+    @@@ ruby
+    foo = "foo"
+
+    if true
+      foo = "foo2"
+      bar = "bar"
+    end
+
+    puts foo # => "foo2"
+    puts bar # => "bar"
+
+!SLIDE smaller
+## Scope
+    @@@ ruby
+    foo = "foo"
+
+    if true
+      foo = "foo2"
+      bar = "bar"
+    end
+
+    puts foo # => "foo2"
+    puts bar # => "bar"
+
+####
+    @@@ ruby
+    foo = "foo"
+
+    if false
+      foo = "foo2"
+      bar = "bar"
+    end
+
+    puts foo # => "foo2"
+    puts bar # => nil
+
+!SLIDE smaller
+# Instansiering
+    @@@ ruby
+    class Animal
+    end
+
+    # Via "klassmetoden" .new
+    animal = Animal.new
+    animal # => #<Animal:0x007fd5fc110560>
+
+!SLIDE smaller
 # Instansmetod
     @@@ ruby
     class Animal
-      def sound # #sound
+      def sound
         "grymt!"
       end
     end
@@ -42,11 +204,11 @@
     animal = Animal.new
     puts animal.sound
 
-!SLIDE small
+!SLIDE smaller
 # Instansmetod
     @@@ ruby
     class Animal
-      def sound # #sound
+      def sound
         "grymt!"
       end
     end
@@ -54,7 +216,7 @@
     animal = Animal.new # => #<Animal:0x007fd5fc110560>
     puts animal.sound # => "grymt!"
 
-!SLIDE execute small
+!SLIDE execute smaller
 # Subklass
 ## (med arv och överskuggning)
     @@@ ruby
@@ -67,7 +229,7 @@
     dog = Dog.new
     puts dog.sound
 
-!SLIDE execute small
+!SLIDE smaller
 # Subklass
 ## (med arv och överskuggning)
     @@@ ruby
@@ -80,7 +242,7 @@
     dog = Dog.new # => #<Dog:0x007fd5fc110560>
     puts dog.sound # => "VOFF!"
 
-!SLIDE small
+!SLIDE smaller
 # Subklass
 ## (konstruktor och instansvariabel)
     @@@ ruby
@@ -101,7 +263,7 @@
     puts animal.sound
     puts animal.owner
 
-!SLIDE small
+!SLIDE smaller
 # Subklass
 ## (konstruktor och instansvariabel)
     @@@ ruby
@@ -122,7 +284,7 @@
     puts animal.sound # => "VOFF!"
     puts animal.owner # => "Micke"
 
-!SLIDE small
+!SLIDE smaller
 # Subklass
 ## (anrop till basklass metod)
     @@@ ruby
@@ -146,7 +308,7 @@
     puts animal.owner
     puts animal.name
 
-!SLIDE small
+!SLIDE smaller
 # Subklass
 ## (anrop till basklass metod)
     @@@ ruby
@@ -170,27 +332,26 @@
     puts animal.owner # => "Micke"
     puts animal.name # => "Max"
 
-!SLIDE
+!SLIDE smaller
 # Förädisk enkel?
 
-!SLIDE
+!SLIDE smaller
     @@@ ruby
     "VOFF".class # => String
 
-!SLIDE
-
+!SLIDE smaller
     @@@ ruby
     "VOFF".class # => String
     animal.class # => Animal
 
-!SLIDE
+!SLIDE smaller
 
     @@@ ruby
     "VOFF".class # => String
     animal.class # => Animal
     dog.class # => Dog
 
-!SLIDE
+!SLIDE smaller
 
     @@@ ruby
     "VOFF".class # => String
@@ -201,7 +362,7 @@
     @@@ ruby
     Tax.class
 
-!SLIDE
+!SLIDE smaller
 
     @@@ ruby
     "VOFF".class # => String
@@ -212,7 +373,7 @@
     @@@ ruby
     Tax.class # => Class
 
-!SLIDE
+!SLIDE smaller
     @@@ ruby
     Animal.class # => Class
     Dog.class # => Class
@@ -464,9 +625,21 @@
     charlie_singleton = charlie.singleton_class
     # => #<Class:#<Tax:0x007fe7510777c8>>
 
+    max_singleton.instance_methods(false)
+    # => []
+
+    charlie_singleton.instance_methods(false)
+    # => []
+
     def max.color
       "brown"
     end
+
+    max_singleton.instance_methods(false)
+    # => [:color]
+
+    charlie_singleton.instance_methods(false)
+    # => []
 
     puts max.color # => "brown"
     puts charlie.color
