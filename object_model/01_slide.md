@@ -644,3 +644,95 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     puts max.color # => "brown"
     puts charlie.color
     # => undefined method `color' for #<Dog:0x007fbaba12daf0>
+
+!SLIDE smaller
+# Moduler
+
+!SLIDE smaller
+## En modul
+    @@@ ruby
+    module Animals
+
+    end
+
+!SLIDE smaller
+## Användningsområden
+
+* Namespacing
+* Composition
+* Extending
+
+!SLIDE smaller
+## Namespacing (klass)
+
+    @@@ ruby
+    module Animals
+      class Dog
+      end
+    end
+
+!SLIDE smaller
+## Namespacing (klass)
+
+    @@@ ruby
+    module Animals
+      class Dog
+      end
+    end
+
+    dog = Animals::Dog.new # => #<Animals::Dog:0x007fb31c0ac950>
+
+!SLIDE smaller
+## Namespacing (metod)
+    @@@ ruby
+    module Animals
+      def self.common_sounds
+        ["VOFF", "Mjau", "Grymt", "Bää"]
+      end
+    end
+
+!SLIDE smaller
+## Namespacing (metod)
+    @@@ ruby
+    module Animals
+      def self.common_sounds
+        ["VOFF", "Mjau", "Grymt", "Bää"]
+      end
+    end
+
+    Animals.common_sounds # => ["VOFF", "Mjau", "Grymt", "Bää"]
+
+!SLIDE smaller
+## Composition (mixin)
+    @@@ ruby
+    def common_sounds
+      ["VOFF", "Mjau", "Grymt", "Bää"]
+    end
+####
+    @@@ ruby
+    class Farm
+    end
+
+    class Zoo
+    end
+
+!SLIDE smaller
+## Composition (mixin)
+    @@@ ruby
+    module AnimalSounds
+      def common_sounds
+        ["VOFF", "Mjau", "Grymt", "Bää"]
+      end
+    end
+####
+    @@@ ruby
+    class Farm
+      include AnimalSounds
+    end
+
+    class Zoo
+      include AnimalSounds
+    end
+
+    Farm.new.common_sounds # => ["VOFF", "Mjau", "Grymt", "Bää"]
+    Zoo.new.common_sounds # => ["VOFF", "Mjau", "Grymt", "Bää"]
