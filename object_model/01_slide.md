@@ -1,6 +1,5 @@
 !SLIDE smaller
-# Rubys objektsmodell
-## Förädisk enkel
+# Rubys objektsmodell + variabler
 
 !SLIDE smaller
 # Låt oss börja från grunden
@@ -49,7 +48,7 @@
     Animal::NUMBER_OF_SPECIES # => 8700000
 
 !SLIDE smaller
-# Klassdefinition
+# Klassdefinition (tillbaka)
     @@@ ruby
     class Animal
     end
@@ -180,7 +179,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     bar # => nil
 
 !SLIDE smaller
-# Instansiering
+# Instansiering (tillbaka)
     @@@ ruby
     class Animal
     end
@@ -370,7 +369,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 
 !SLIDE smaller
 # Subklass
-## (tillbaka till konstruktor och instansvariabel)
+## Konstruktor och instansvariabel (tillbaka)
     @@@ ruby
     class Dog < Animal
       attr_reader :owner
@@ -459,7 +458,63 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     animal.name # => "Max"
 
 !SLIDE smaller
-# Förädisk enkel?
+# Då har vi grunderna
+
+!SLIDE smaller
+# Låt oss gå vidare
+
+!SLIDE smaller
+
+# Klassmetoder
+
+!SLIDE smaller
+# Animal.new
+
+!SLIDE smaller
+    @@@ ruby
+    class Animal
+      def self.common_sounds
+        ["VOFF", "Mjau", "Grymt", "Bää"]
+      end
+    end
+
+    Animal.common_sounds
+
+!SLIDE smaller
+    @@@ ruby
+    class Animal
+      def self.common_sounds
+        ["VOFF", "Mjau", "Grymt", "Bää"]
+      end
+    end
+
+    Animal.common_sounds # => ["VOFF", "Mjau", "Grymt", "Bää"]
+
+!SLIDE smaller
+    @@@ ruby
+    class Animal
+      def self.common_sounds
+        ["VOFF", "Mjau", "Grymt", "Bää"]
+      end
+    end
+
+    class Dog < Animal
+    end
+
+    Dog.common_sounds
+
+!SLIDE smaller
+    @@@ ruby
+    class Animal
+      def self.common_sounds
+        ["VOFF", "Mjau", "Grymt", "Bää"]
+      end
+    end
+
+    class Dog < Animal
+    end
+
+    Dog.common_sounds # => ["VOFF", "Mjau", "Grymt", "Bää"]
 
 !SLIDE smaller
     @@@ ruby
