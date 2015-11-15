@@ -51,15 +51,15 @@
 #   end
 # end
 
-foo = "foo"
-
-if false
-  foo = "foo2"
-  bar = "bar"
-end
-
-puts foo.inspect
-puts bar.inspect
+# foo = "foo"
+#
+# if false
+#   foo = "foo2"
+#   bar = "bar"
+# end
+#
+# puts foo.inspect
+# puts bar.inspect
 
 # foo = "foo"
 #
@@ -73,3 +73,28 @@ puts bar.inspect
 #
 # puts foo
 # puts bar
+
+
+# foo = "foo"
+#
+# def baz
+#   puts foo
+#   foo = "foo2"
+#   puts foo # => "foo2"
+#   bar = "bar"
+# end
+#
+# baz()
+#
+# puts foo # => "foo"
+#bar # => undefined local variable or method `bar' for main:Object .....
+
+foo = "foo"
+
+if false
+  foo = "foo2"
+  bar = "bar"
+end
+
+puts foo
+puts bar

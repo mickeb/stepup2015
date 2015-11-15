@@ -101,6 +101,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     foo = "foo"
 
     def baz
+      puts foo
       foo = "foo2"
       puts foo
       bar = "bar"
@@ -117,6 +118,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     foo = "foo"
 
     def baz
+      puts foo # => undefined local variable or method `foo' for main:Object
       foo = "foo2"
       puts foo # => "foo2"
       bar = "bar"
@@ -158,15 +160,16 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     @@@ ruby
     foo = "foo"
 
-    if true
+    if false
       foo = "foo2"
       bar = "bar"
     end
 
-    foo # => "foo2"
-    bar # => "bar"
+    foo
+    bar
 
-####
+!SLIDE smaller
+## Scope
     @@@ ruby
     foo = "foo"
 
@@ -175,7 +178,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
       bar = "bar"
     end
 
-    foo # => "foo2"
+    foo # => "foo"
     bar # => nil
 
 !SLIDE smaller
@@ -613,8 +616,27 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     Animal.common_sounds # => ["VOFF", "Mjau", "Grymt", "Bää"]
 
 !SLIDE smaller
+# Ner på djupet
+
+!SLIDE smaller
+# #class
+
+!SLIDE smaller
+# #class
+## Returns the class of obj
+
+!SLIDE smaller
+    @@@ ruby
+    "VOFF".class
+
+!SLIDE smaller
     @@@ ruby
     "VOFF".class # => String
+
+!SLIDE smaller
+    @@@ ruby
+    "VOFF".class # => String
+    animal.class
 
 !SLIDE smaller
     @@@ ruby
@@ -650,225 +672,21 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     @@@ ruby
     Tax.class # => Class
 
-!SLIDE smaller
-    @@@ ruby
-    Animal.class # => Class
-    Dog.class # => Class
-    Tax.class # => Class
-
-!SLIDE
-    @@@ ruby
-    Animal.class # => Class
-    Dog.class # => Class
-    Tax.class # => Class
-####
-    @@@ ruby
-    Class.class
-
-!SLIDE
-    @@@ ruby
-    Animal.class # => Class
-    Dog.class # => Class
-    Tax.class # => Class
-####
-    @@@ ruby
-    Class.class # => Class
-
-!SLIDE
-## Vilket borde innebära:
-    @@@ ruby
-    tax_class = Tax
-    tax = tax_class.new("Micke", "Max")
-
-!SLIDE
-## Vilket borde innebära:
-    @@@ ruby
-    tax_class = Tax # => Tax
-    tax = dog_class.new("Micke", "Max")
-    # => #<Tax:0x007f83c3095c38>
-
-!SLIDE smaller
-## Exempel
-    @@@ ruby
-    class MyClass
-      class MyException < StandardError; end
-    end
-
-!SLIDE smaller
-## Exempel
-    @@@ ruby
-    class MyClass
-      class MyException < StandardError; end
-    end
-####
-    @@@ ruby
-    class MyClass
-      MyException = Class.new StandardError
-    end
-
 !SLIDE smaller center
 ## Översikt
 ![Ruby](http://skilldrick.co.uk/wp-content/uploads/2011/08/Ruby.png)
 ### http://skilldrick.co.uk/wp-content/uploads/2011/08/Ruby.png
 
 !SLIDE smaller
-# Lite förvirrande i alla fall
+## "Classes in Ruby are first-class objects - each is an instance of class Class"
 
 !SLIDE smaller
-# "klassmetod"
+# Klassmetod
 
 !SLIDE smaller
-# "klassmetod"
+# Klassmetod?
 ## ==
 # instansmetod i instanser av klassen Class
-
-!SLIDE smaller
-# klassmetod
-
-!SLIDE smaller
-### Exempel 1:
-    @@@ ruby
-    class Animal
-      def self.common_sounds
-        ["VOFF", "Mjau", "Grymt", "Bää"]
-      end
-    end
-
-    class Dog < Animal
-    end
-
-    Dog.common_sounds
-
-!SLIDE smaller
-### Exempel 1:
-    @@@ ruby
-    class Animal
-      def self.common_sounds
-        ["VOFF", "Mjau", "Grymt", "Bää"]
-      end
-    end
-
-    class Dog < Animal
-    end
-
-    Dog.common_sounds
-    # => ["VOFF", "Mjau", "Grymt", "Bää"]
-
-!SLIDE smaller
-## Exempel 1.1:
-    @@@ ruby
-    class Animal
-    end
-
-!SLIDE smaller
-## Exempel 1.1:
-    @@@ ruby
-    class Animal
-    end
-
-    animal = Animal.new # => #<Dog:0x007fd5fc110560>
-
-!SLIDE smaller
-## Exempel 1.1:
-    @@@ ruby
-    class Animal
-    end
-
-    animal = Animal.new # => #<Dog:0x007fd5fc110560>
-    Animal.superclass # => Object
-
-!SLIDE smaller
-## Exempel 1.1:
-    @@@ ruby
-    class Animal
-    end
-
-    animal = Animal.new # => #<Dog:0x007fd5fc110560>
-    Animal.superclass # => Object
-    Object.methods
-
-!SLIDE smaller
-## Exempel 1.1:
-    @@@ ruby
-    class Animal
-    end
-
-    animal = Animal.new # => #<Dog:0x007fd5fc110560>
-    Animal.superclass # => Object
-    Object.methods # => [..., :new, ...]
-
-!SLIDE smaller
-## Även "klassmetoder" ärvs
-
-!SLIDE smaller
-## Exempel 2:
-    @@@ ruby
-    max = Tax.new("Micke", "Max")
-    charlie = Tax.new("Micke", "Charlie")
-
-    def max.color
-      "brown"
-    end
-
-    puts max.color
-    puts charlie.color
-
-!SLIDE smaller
-## Exempel 2:
-    @@@ ruby
-    max = Tax.new("Micke", "Max")
-    charlie = Tax.new("Micke", "Charlie")
-
-    def max.color
-      "brown"
-    end
-
-    puts max.color # => "brown"
-    puts charlie.color
-    # => undefined method `color' for #<Dog:0x007fbaba12daf0>
-
-!SLIDE smaller
-## Exempel 2.1:
-    @@@ ruby
-    def Tax.color
-      "brown"
-    end
-
-    puts Tax.color
-
-!SLIDE smaller
-## Exempel 2.1:
-    @@@ ruby
-    class Tax < Dog
-      # ...
-    end
-
-    def Tax.color
-      "brown"
-    end
-
-    puts Tax.color # => "brown"
-
-!SLIDE smaller
-## Exempel 2.1:
-    @@@ ruby
-    class Tax < Dog
-      # ...
-    end
-
-    def Tax.color
-      "brown"
-    end
-
-    ==
-
-    class Tax
-      def self.color
-        "brown"
-      end
-    end
-
-    puts Tax.color # => "brown"
 
 !SLIDE smaller
 # Singletonklass
@@ -876,51 +694,118 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 
 !SLIDE smaller
 
-### Alla objekt i ruby har en singletonklass associerad till sig
+## Alla objekt i ruby har en singletonklass associerad till sig
 
 !SLIDE smaller
 
-### Alla objekt i ruby har en singletonklass associerad till sig
-### som inte existerar
+## Alla objekt i ruby har en singletonklass associerad till sig
+## som inte existerar
 
 !SLIDE smaller
 
-### Alla objekt i ruby har en singletonklass associerad till sig
-### som inte existerar
-### förrän den refereras
+## Alla objekt i ruby har en singletonklass associerad till sig
+## som inte existerar
+## förrän den refereras
 
 !SLIDE smaller
     @@@ ruby
-
-    Tax.instance_methods(false) # => [:name, :sound]
-
-    max = Tax.new("Micke", "Max")
-    charlie = Tax.new("Micke", "Charlie")
-
-    max_singleton = max.singleton_class
-    # => #<Class:#<Tax:0x007fe751096358>>
-    charlie_singleton = charlie.singleton_class
-    # => #<Class:#<Tax:0x007fe7510777c8>>
-
-    max_singleton.instance_methods(false)
-    # => []
-
-    charlie_singleton.instance_methods(false)
-    # => []
-
-    def max.color
-      "brown"
+    class Animal
     end
 
-    max_singleton.instance_methods(false)
-    # => [:color]
+    animal = Animal.new
 
-    charlie_singleton.instance_methods(false)
-    # => []
+    Animal.singleton_class
+    animal.singleton_class
 
-    puts max.color # => "brown"
-    puts charlie.color
-    # => undefined method `color' for #<Dog:0x007fbaba12daf0>
+!SLIDE smaller
+    @@@ ruby
+    class Animal
+    end
+
+    animal = Animal.new
+
+    Animal.singleton_class # => #<Class:Animal>
+    animal.singleton_class # => #<Class:#<Animal:0x007fe53a28c5e0>>
+
+!SLIDE smaller
+    @@@ ruby
+    class Animal
+    end
+
+    animal1 = Animal.new
+    animal2 = Animal.new
+
+    def animal1.sound
+      "Mjau"
+    end
+
+    animal1.sound
+    animal2.sound
+
+!SLIDE smaller
+    @@@ ruby
+    class Animal
+    end
+
+    animal1 = Animal.new
+    animal2 = Animal.new
+
+    def animal1.sound
+      "Mjau"
+    end
+
+    animal1.sound # => "Mjau"
+    animal2.sound # => undefined method `sound' for #<Animal:0x007...
+
+!SLIDE smaller
+    @@@ ruby
+    class Animal
+    end
+
+    animal1 = Animal.new
+    animal2 = Animal.new
+
+    def animal1.sound
+      "Mjau"
+    end
+
+    animal1.singleton_class.instance_methods(false)
+    animal2.singleton_class.instance_methods(false)
+
+!SLIDE smaller
+    @@@ ruby
+    class Animal
+    end
+
+    animal1 = Animal.new
+    animal2 = Animal.new
+
+    def animal1.sound
+      "Mjau"
+    end
+
+    animal1.singleton_class.instance_methods(false) # => [:sound]
+    animal2.singleton_class.instance_methods(false) # => []
+
+!SLIDE smaller
+    @@@ ruby
+    class Animal
+      def self.common_sounds
+        ["VOFF", "Mjau", "Grymt", "Bää"]
+      end
+    end
+
+    Animal.singleton_class.instance_methods(false)
+
+!SLIDE smaller
+    @@@ ruby
+    class Animal
+      def self.common_sounds
+        ["VOFF", "Mjau", "Grymt", "Bää"]
+      end
+    end
+
+    Animal.singleton_class.instance_methods(false) # => [:common_sounds]
 
 !SLIDE smaller
 # Moduler
@@ -929,7 +814,6 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 ## En modul
     @@@ ruby
     module Animals
-
     end
 
 !SLIDE smaller
