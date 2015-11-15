@@ -60,7 +60,6 @@
     class Animal
     end
 
-    # Via "klassmetoden" .new
     animal = Animal.new
 
 !SLIDE smaller
@@ -69,7 +68,6 @@
     class Animal
     end
 
-    # Via "klassmetoden" .new
     animal = Animal.new
     animal # => #<Animal:0x007fd5fc110560>
 
@@ -77,13 +75,12 @@
 
 # Lokala variabler
 
-* Börjar alltid med liten bokstav
 * Alltid snake_case
 * Scope
 
 !SLIDE smaller
 
-## Börjar alltid med liten bokstav + snake_case
+## snake_case
 ### Bra:
 
     @@@ ruby
@@ -112,8 +109,8 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 
     baz()
 
-    puts foo
-    puts bar
+    foo
+    bar
 
 !SLIDE smaller
 ## Scope
@@ -128,8 +125,8 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 
     baz()
 
-    puts foo # => "foo"
-    puts bar # => undefined local variable or method `bar' for main:Object .....
+    foo # => "foo"
+    bar # => undefined local variable or method `bar' for main:Object .....
 
 !SLIDE smaller
 ## Scope
@@ -141,8 +138,8 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
       bar = "bar"
     end
 
-    puts foo
-    puts bar
+    foo
+    bar
 
 !SLIDE smaller
 ## Scope
@@ -154,8 +151,8 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
       bar = "bar"
     end
 
-    puts foo # => "foo2"
-    puts bar # => "bar"
+    foo # => "foo2"
+    bar # => "bar"
 
 !SLIDE smaller
 ## Scope
@@ -167,8 +164,8 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
       bar = "bar"
     end
 
-    puts foo # => "foo2"
-    puts bar # => "bar"
+    foo # => "foo2"
+    bar # => "bar"
 
 ####
     @@@ ruby
@@ -179,8 +176,8 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
       bar = "bar"
     end
 
-    puts foo # => "foo2"
-    puts bar # => nil
+    foo # => "foo2"
+    bar # => nil
 
 !SLIDE smaller
 # Instansiering
@@ -202,7 +199,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     end
 
     animal = Animal.new
-    puts animal.sound
+    animal.sound
 
 !SLIDE smaller
 # Instansmetod
@@ -214,20 +211,20 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     end
 
     animal = Animal.new # => #<Animal:0x007fd5fc110560>
-    puts animal.sound # => "grymt!"
+    animal.sound # => "grymt!"
 
 !SLIDE execute smaller
 # Subklass
 ## (med arv och överskuggning)
     @@@ ruby
     class Dog < Animal
-      def sound # Överskuggning
+      def sound
         "VOFF!"
       end
     end
 
     dog = Dog.new
-    puts dog.sound
+    dog.sound
 
 !SLIDE smaller
 # Subklass
@@ -240,17 +237,17 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     end
 
     dog = Dog.new # => #<Dog:0x007fd5fc110560>
-    puts dog.sound # => "VOFF!"
+    dog.sound # => "VOFF!"
 
 !SLIDE smaller
 # Subklass
 ## (konstruktor och instansvariabel)
     @@@ ruby
     class Dog < Animal
-      attr_reader :owner # Ger tillgång till @owner utifrån
+      attr_reader :owner
 
       def initialize(owner)
-        @owner = owner # instansvariabler prefixas med "@"
+        @owner = owner
       end
 
       def sound
@@ -260,8 +257,137 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 
     animal = Dog.new("Micke")
 
-    puts animal.sound
-    puts animal.owner
+    animal.sound
+    animal.owner
+
+!SLIDE smaller
+
+# Instansvariabler
+
+* Prefixas med @
+* snake_case
+* Visibility
+* Scope
+
+!SLIDE smaller
+## Prefixas med @
+    @@@ ruby
+    @foo = bar
+
+!SLIDE smaller
+
+## snake_case
+### Bra:
+
+    @@@ ruby
+    @my_var = 42
+
+### Dåligt:
+    @@@ ruby
+    @myVar = 42
+
+!SLIDE smaller
+## Visibility
+    @@@ ruby
+    class Animal
+      def initialize
+        @sound = "morr"
+      end
+    end
+
+    Animal.new.sound
+
+!SLIDE smaller
+## Visibility
+    @@@ ruby
+    class Animal
+      def initialize
+        @sound = "morr"
+      end
+    end
+
+    Animal.new.sound # undefined method `sound' for #<Animal:0x007fb9a...
+
+!SLIDE smaller
+    @@@ ruby
+    class Animal
+      def initialize
+        @sound = "morr"
+      end
+
+      def sound
+        @sound
+      end
+    end
+
+    Animal.new.sound
+
+!SLIDE smaller
+    @@@ ruby
+    class Animal
+      def initialize
+        @sound = "morr"
+      end
+
+      def sound
+        @sound
+      end
+    end
+
+    Animal.new.sound # => "morr"
+
+!SLIDE smaller
+    @@@ ruby
+    class Animal
+      def sound
+        @sound
+      end
+    end
+
+    Animal.new.sound
+
+!SLIDE smaller
+    @@@ ruby
+    class Animal
+      def sound
+        @sound
+      end
+    end
+
+    Animal.new.sound # => nil
+
+!SLIDE smaller
+    @@@ ruby
+    class Animal
+      def initialize(sound_id)
+        @sound_id = sound_id
+      end
+
+      def sound
+        @sound ||= Sound.find(sound_id)
+      end
+    end
+
+!SLIDE smaller
+# Subklass
+## (tillbaka till konstruktor och instansvariabel)
+    @@@ ruby
+    class Dog < Animal
+      attr_reader :owner
+
+      def initialize(owner)
+        @owner = owner
+      end
+
+      def sound
+        "VOFF!"
+      end
+    end
+
+    animal = Dog.new("Micke")
+
+    animal.sound
+    animal.owner
 
 !SLIDE smaller
 # Subklass
@@ -281,8 +407,8 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 
     animal = Dog.new("Micke") # => #<Dog:0x007fd5fc110560>
 
-    puts animal.sound # => "VOFF!"
-    puts animal.owner # => "Micke"
+    animal.sound # => "VOFF!"
+    animal.owner # => "Micke"
 
 !SLIDE smaller
 # Subklass
@@ -304,9 +430,9 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 
     animal = Tax.new("Micke", "Max")
 
-    puts animal.sound
-    puts animal.owner
-    puts animal.name
+    animal.sound
+    animal.owner
+    animal.name
 
 !SLIDE smaller
 # Subklass
@@ -328,9 +454,9 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 
     animal = Tax.new("Micke", "Max")
 
-    puts animal.sound # => "voff!..gläffs!"
-    puts animal.owner # => "Micke"
-    puts animal.name # => "Max"
+    animal.sound # => "voff!..gläffs!"
+    animal.owner # => "Micke"
+    animal.name # => "Max"
 
 !SLIDE smaller
 # Förädisk enkel?
