@@ -887,3 +887,174 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     end
 
     puts Animal.new.sort # => Bää Grymt Mjau Voff
+
+!SLIDE smaller
+## Fler variabeltyper
+
+!SLIDE smaller
+## Fler variabeltyper
+### (som knappt inte används)
+
+!SLIDE smaller
+## Fler variabeltyper
+### (som knappt inte används)
+
+* Globala variabler
+* Klassvariabler
+
+!SLIDE smaller
+## Globala variabler
+    @@@ ruby
+    $foo = "bar"
+    $foo
+
+!SLIDE smaller
+## Globala variabler
+    @@@ ruby
+    $foo = "bar"
+    $foo # => bar
+
+!SLIDE smaller
+## Globala variabler
+    @@@ ruby
+    $foo
+
+!SLIDE smaller
+## Globala variabler
+    @@@ ruby
+    $foo # => nil
+
+!SLIDE smaller
+## Globala variabler
+    @@@ ruby
+    $$ # PID
+    $? # Exit status of last executed child process
+    $0 # The name of the ruby script file
+
+!SLIDE smaller
+## Klassvariabler
+    @@@ ruby
+    class Animal
+      @@sound = "Oidentifierbart"
+
+      def self.sound
+        @@sound
+      end
+    end
+
+    Animal.sound
+
+!SLIDE smaller
+## Klassvariabler
+    @@@ ruby
+    class Animal
+      @@sound = "Oidentifierbart"
+
+      def self.sound
+        @@sound
+      end
+    end
+
+    Animal.sound # => Oidentifierbart
+
+!SLIDE smaller
+## Klassvariabler
+    @@@ ruby
+    class Animal
+      @@sound = "Oidentifierbart"
+
+      def self.sound
+        @@sound
+      end
+    end
+
+    class Dog < Animal
+    end
+
+    Dog.sound
+
+!SLIDE smaller
+## Klassvariabler
+    @@@ ruby
+    class Animal
+      @@sound = "Oidentifierbart"
+
+      def self.sound
+        @@sound
+      end
+    end
+
+    class Dog < Animal
+    end
+
+    Dog.sound # => Oidentifierbart
+
+!SLIDE smaller
+## Klassvariabler
+    @@@ ruby
+    class Animal
+      @@sound = "Oidentifierbart"
+
+      def self.sound
+        @@sound
+      end
+    end
+
+    class Dog < Animal
+      @@sound = "VOFF!"
+    end
+
+    Dog.sound
+
+!SLIDE smaller
+## Klassvariabler
+    @@@ ruby
+    class Animal
+      @@sound = "Oidentifierbart"
+
+      def self.sound
+        @@sound
+      end
+    end
+
+    class Dog < Animal
+      @@sound = "VOFF!"
+    end
+
+    Dog.sound # => VOFF!
+
+!SLIDE smaller
+## Klassvariabler
+    @@@ ruby
+    class Animal
+      @@sound = "Oidentifierbart"
+
+      def self.sound
+        @@sound
+      end
+    end
+
+    class Dog < Animal
+      @@sound = "VOFF!"
+    end
+
+    Dog.sound # => VOFF!
+    Animal.sound
+
+!SLIDE smaller
+## Klassvariabler
+    @@@ ruby
+    class Animal
+      @@sound = "Oidentifierbart"
+
+      def self.sound
+        @@sound
+      end
+    end
+
+    class Dog < Animal
+      @@sound = "VOFF!"
+    end
+
+    Dog.sound # => VOFF!
+    Animal.sound # => VOFF!
