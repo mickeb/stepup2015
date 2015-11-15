@@ -220,7 +220,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 # Subklass
 ## (med arv och överskuggning)
     @@@ ruby
-    class Dog < Animal # Arv
+    class Dog < Animal
       def sound # Överskuggning
         "VOFF!"
       end
@@ -233,8 +233,8 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 # Subklass
 ## (med arv och överskuggning)
     @@@ ruby
-    class Dog < Animal # Arv
-      def sound # Överskuggning
+    class Dog < Animal
+      def sound
         "VOFF!"
       end
     end
@@ -268,10 +268,10 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 ## (konstruktor och instansvariabel)
     @@@ ruby
     class Dog < Animal
-      attr_reader :owner # Ger tillgång till @owner utifrån
+      attr_reader :owner
 
       def initialize(owner)
-        @owner = owner # instansvariabler prefixas med "@"
+        @owner = owner
       end
 
       def sound
@@ -292,7 +292,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
       attr_reader :name
 
       def initialize(owner, name)
-        super(owner) # #super för anropa basklassens metod
+        super(owner)
 
         @name = name
       end
@@ -316,7 +316,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
       attr_reader :name
 
       def initialize(owner, name)
-        super(owner) # #super för anropa basklassens metod
+        super(owner)
 
         @name = name
       end
