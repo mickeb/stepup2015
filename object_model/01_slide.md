@@ -187,7 +187,6 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     class Animal
     end
 
-    # Via "klassmetoden" .new
     animal = Animal.new
     animal # => #<Animal:0x007fd5fc110560>
 
@@ -261,6 +260,27 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 
     animal.sound
     animal.owner
+
+!SLIDE smaller
+# Subklass
+## (konstruktor och instansvariabel)
+    @@@ ruby
+    class Dog < Animal
+      attr_reader :owner
+
+      def initialize(owner)
+        @owner = owner
+      end
+
+      def sound
+        "VOFF!"
+      end
+    end
+
+    animal = Dog.new("Micke") # => #<Dog:0x007fd5fc110560>
+
+    animal.sound # => "VOFF!"
+    animal.owner # => "Micke"
 
 !SLIDE smaller
 
@@ -386,35 +406,14 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
       end
     end
 
-    animal = Dog.new("Micke")
+    dog = Dog.new("Micke") # => #<Dog:0x007fd5fc110560>
 
-    animal.sound
-    animal.owner
-
-!SLIDE smaller
-# Subklass
-## (konstruktor och instansvariabel)
-    @@@ ruby
-    class Dog < Animal
-      attr_reader :owner
-
-      def initialize(owner)
-        @owner = owner
-      end
-
-      def sound
-        "VOFF!"
-      end
-    end
-
-    animal = Dog.new("Micke") # => #<Dog:0x007fd5fc110560>
-
-    animal.sound # => "VOFF!"
-    animal.owner # => "Micke"
+    dog.sound # => "VOFF!"
+    dog.owner # => "Micke"
 
 !SLIDE smaller
 # Subklass
-## (anrop till basklass metod)
+## Anrop till basklass metod
     @@@ ruby
     class Tax < Dog
       attr_reader :name
@@ -430,15 +429,15 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
       end
     end
 
-    animal = Tax.new("Micke", "Max")
+    tax = Tax.new("Micke", "Max")
 
-    animal.sound
-    animal.owner
-    animal.name
+    tax.sound
+    tax.owner
+    tax.name
 
 !SLIDE smaller
 # Subklass
-## (anrop till basklass metod)
+## Anrop till basklass metod
     @@@ ruby
     class Tax < Dog
       attr_reader :name
@@ -454,11 +453,11 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
       end
     end
 
-    animal = Tax.new("Micke", "Max")
+    tax = Tax.new("Micke", "Max")
 
-    animal.sound # => "voff!..gläffs!"
-    animal.owner # => "Micke"
-    animal.name # => "Max"
+    tax.sound # => "voff!..gläffs!"
+    tax.owner # => "Micke"
+    tax.name # => "Max"
 
 !SLIDE smaller
 # Då har vi grunderna
@@ -1048,6 +1047,69 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     end
 
     puts Animal.new.sort # => Bää Grymt Mjau Voff
+
+!SLIDE smaller
+## Extending
+    @@@ ruby
+    module AnimalSounds
+      def common_sounds
+        ["VOFF", "Mjau", "Grymt", "Bää"]
+      end
+    end
+
+    class Animal
+      extend AnimalSounds
+    end
+
+    Animal.common_sounds
+
+!SLIDE smaller
+## Extending
+    @@@ ruby
+    module AnimalSounds
+      def common_sounds
+        ["VOFF", "Mjau", "Grymt", "Bää"]
+      end
+    end
+
+    class Animal
+      extend AnimalSounds
+    end
+
+    Animal.common_sounds # => ["VOFF", "Mjau", "Grymt", "Bää"]
+
+!SLIDE smaller
+## Extending
+    @@@ ruby
+    module AnimalSounds
+      def self.common_sounds
+        ["VOFF", "Mjau", "Grymt", "Bää"]
+      end
+
+      def self.rare_sounds
+        ["Brööl"]
+      end
+
+      # ...
+
+    end
+
+!SLIDE smaller
+## Extending
+    @@@ ruby
+    module AnimalSounds
+      extend self
+
+      def common_sounds
+        ["VOFF", "Mjau", "Grymt", "Bää"]
+      end
+
+      def rare_sounds
+        ["Brööl"]
+      end
+
+      # ...
+    end
 
 !SLIDE smaller
 ## Fler variabeltyper
