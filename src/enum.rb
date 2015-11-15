@@ -10,3 +10,4 @@ class Animal
 end
 
 puts Animal.new.sort
+puts Animal.new.sound

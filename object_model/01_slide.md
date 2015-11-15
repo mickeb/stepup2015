@@ -517,6 +517,102 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     Dog.common_sounds # => ["VOFF", "Mjau", "Grymt", "Bää"]
 
 !SLIDE smaller
+# Öppna klasser
+
+!SLIDE smaller
+    @@@ ruby
+    class Animal
+    end
+
+    animal = Animal.new
+    animal.sound
+
+!SLIDE smaller
+
+    @@@ ruby
+    class Animal
+    end
+
+    animal = Animal.new
+    animal.sound # = undefined method `sound' for #<Animal:0x007...
+
+!SLIDE smaller
+    @@@ ruby
+    class Animal
+    end
+
+    class Animal
+      def sound
+        "Mjau"
+      end
+    end
+
+    animal = Animal.new
+    animal.sound
+
+!SLIDE smaller
+    @@@ ruby
+    class Animal
+    end
+
+    class Animal
+      def sound
+        "Mjau"
+      end
+    end
+
+    animal = Animal.new
+    animal.sound # => "Mjau"
+
+!SLIDE smaller
+    @@@ ruby
+    class Animal
+    end
+
+    animal = Animal.new
+
+    def animal.sound
+      "Mjau"
+    end
+
+    animal.sound
+
+!SLIDE smaller
+    @@@ ruby
+    class Animal
+    end
+
+    animal = Animal.new
+
+    def animal.sound
+      "Mjau"
+    end
+
+    animal.sound # => "Mjau"
+
+!SLIDE smaller
+    @@@ ruby
+    class Animal
+    end
+
+    def Animal.common_sounds
+      ["VOFF", "Mjau", "Grymt", "Bää"]
+    end
+
+    Animal.common_sounds
+
+!SLIDE smaller
+    @@@ ruby
+    class Animal
+    end
+
+    def Animal.common_sounds
+      ["VOFF", "Mjau", "Grymt", "Bää"]
+    end
+
+    Animal.common_sounds # => ["VOFF", "Mjau", "Grymt", "Bää"]
+
+!SLIDE smaller
     @@@ ruby
     "VOFF".class # => String
 
