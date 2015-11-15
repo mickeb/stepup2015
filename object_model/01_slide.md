@@ -734,5 +734,156 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
       include AnimalSounds
     end
 
+    Farm.new.common_sounds
+    Zoo.new.common_sounds
+
+!SLIDE smaller
+## Composition (mixin)
+    @@@ ruby
+    module AnimalSounds
+      def common_sounds
+        ["VOFF", "Mjau", "Grymt", "Bää"]
+      end
+    end
+####
+    @@@ ruby
+    class Farm
+      include AnimalSounds
+    end
+
+    class Zoo
+      include AnimalSounds
+    end
+
     Farm.new.common_sounds # => ["VOFF", "Mjau", "Grymt", "Bää"]
     Zoo.new.common_sounds # => ["VOFF", "Mjau", "Grymt", "Bää"]
+
+!SLIDE smaller
+## Composition (multiple mixins)
+    @@@ ruby
+    module AnimalSounds
+      def common_sounds
+        ["VOFF", "Mjau", "Grymt", "Bää"]
+      end
+    end
+
+    module HumanSounds
+      def common_sounds
+        ["Titta där!", "Jag vill gå hem!", "Mata ej tapiren!"]
+      end
+    end
+
+####
+    @@@ ruby
+    class Zoo
+      include AnimalSounds
+      include HumanSounds
+    end
+
+    Zoo.new.common_sounds
+
+!SLIDE smaller
+## Composition (multiple mixins)
+    @@@ ruby
+    module AnimalSounds
+      def common_sounds
+        ["VOFF", "Mjau", "Grymt", "Bää"]
+      end
+    end
+
+    module HumanSounds
+      def common_sounds
+        ["Titta där!", "Jag vill gå hem!", "Mata ej tapiren!"]
+      end
+    end
+
+####
+    @@@ ruby
+    class Zoo
+      include AnimalSounds
+      include HumanSounds
+    end
+
+    Zoo.new.common_sounds # => Titta där!, Jag vill gå hem!, Mata ej tapiren!
+
+!SLIDE smaller
+## Composition (multiple mixins)
+    @@@ ruby
+    module AnimalSounds
+      def common_sounds
+        ["VOFF", "Mjau", "Grymt", "Bää"]
+      end
+    end
+
+    module HumanSounds
+      def common_sounds
+        super + ["Titta där!", "Jag vill gå hem!", "Mata ej tapiren!"]
+      end
+    end
+
+####
+    @@@ ruby
+    class Zoo
+      include AnimalSounds
+      include HumanSounds
+    end
+
+    Zoo.new.common_sounds
+
+!SLIDE smaller
+## Composition (multiple mixins)
+    @@@ ruby
+    module AnimalSounds
+      def common_sounds
+        ["VOFF", "Mjau", "Grymt", "Bää"]
+      end
+    end
+
+    module HumanSounds
+      def common_sounds
+        super + ["Titta där!", "Jag vill gå hem!", "Mata ej tapiren!"]
+      end
+    end
+
+####
+    @@@ ruby
+    class Zoo
+      include AnimalSounds
+      include HumanSounds
+    end
+
+    puts Zoo.new.common_sounds
+    # => ["VOFF", "Mjau", "Grymt", "Bää", "Titta där!", "Jag vill gå hem",
+    #     "Mata ej tapiren!"]
+
+!SLIDE smaller
+## Interface
+    @@@ ruby
+    class Animal
+      include Enumerable
+
+      def each
+        yield "VOFF"
+        yield "Mjau"
+        yield "Grymt"
+        yield "Bää"
+      end
+    end
+
+    puts Animal.new.sort
+
+!SLIDE smaller
+## Interface
+    @@@ ruby
+    class Animal
+      include Enumerable
+
+      def each
+        yield "VOFF"
+        yield "Mjau"
+        yield "Grymt"
+        yield "Bää"
+      end
+    end
+
+    puts Animal.new.sort # => Bää Grymt Mjau Voff
