@@ -153,6 +153,19 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     end
 
     foo # => "foo2"
+    bar
+
+!SLIDE smaller
+## Scope
+    @@@ ruby
+    foo = "foo"
+
+    if true
+      foo = "foo2"
+      bar = "bar"
+    end
+
+    foo # => "foo2"
     bar # => "bar"
 
 !SLIDE smaller
@@ -179,7 +192,44 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     end
 
     foo # => "foo"
+    bar
+
+!SLIDE smaller
+## Scope
+    @@@ ruby
+    foo = "foo"
+
+    if false
+      foo = "foo2"
+      bar = "bar"
+    end
+
+    foo # => "foo"
     bar # => nil
+
+!SLIDE smaller
+## Scope
+    @@@ ruby
+    foo = "foo"
+
+    if false
+      foo = "foo2"
+    end
+
+    foo # => "foo"
+    bar
+
+!SLIDE smaller
+## Scope
+    @@@ ruby
+    foo = "foo"
+
+    if false
+      foo = "foo2"
+    end
+
+    foo # => "foo"
+    bar # => undefined local variable or method `bar' for ...
 
 !SLIDE smaller
 # Instansiering (tillbaka)
@@ -331,6 +381,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     Animal.new.sound # undefined method `sound' for #<Animal:0x007fb9a...
 
 !SLIDE smaller
+## Visibility
     @@@ ruby
     class Animal
       def initialize
@@ -345,6 +396,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     Animal.new.sound
 
 !SLIDE smaller
+## Visibility
     @@@ ruby
     class Animal
       def initialize
@@ -359,6 +411,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     Animal.new.sound # => "morr"
 
 !SLIDE smaller
+## Scope
     @@@ ruby
     class Animal
       def sound
@@ -369,6 +422,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     Animal.new.sound
 
 !SLIDE smaller
+## Scope
     @@@ ruby
     class Animal
       def sound
@@ -379,6 +433,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     Animal.new.sound # => nil
 
 !SLIDE smaller
+## Scope
     @@@ ruby
     class Animal
       def initialize(sound_id)

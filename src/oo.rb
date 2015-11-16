@@ -89,12 +89,21 @@
 # puts foo # => "foo"
 #bar # => undefined local variable or method `bar' for main:Object .....
 
+# foo = "foo"
+#
+# if false
+#   foo = "foo2"
+#   bar = "bar"
+# end
+#
+# puts foo
+# puts bar
+
 foo = "foo"
 
 if false
   foo = "foo2"
-  bar = "bar"
 end
 
-puts foo
-puts bar
+foo # => "foo"
+bar # => nil
