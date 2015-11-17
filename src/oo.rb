@@ -99,11 +99,25 @@
 # puts foo
 # puts bar
 
+# foo = "foo"
+#
+# if false
+#   foo = "foo2"
+# end
+#
+# foo # => "foo"
+# bar # => nil
+
 foo = "foo"
 
-if false
+def baz
+  #puts foo # => undefined local variable or method `foo' for main:Object
   foo = "foo2"
+  puts foo # => "foo2"
+  bar = "bar"
 end
 
+baz()
+
 foo # => "foo"
-bar # => nil
+bar # => undefined local variable or method `bar' for main:Object .....

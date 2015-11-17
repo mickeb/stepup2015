@@ -1,17 +1,17 @@
-!SLIDE smaller
+!SLIDE small
 # Rubys objektsmodell + variabler
 
-!SLIDE smaller
+!SLIDE small
 # Låt oss börja från grunden
 ## (men gå fort fram)
 
-!SLIDE smaller
+!SLIDE small
 # Klassdefinition
     @@@ ruby
     class Animal
     end
 
-!SLIDE smaller
+!SLIDE small
 
 # Konstanter
 
@@ -19,13 +19,13 @@
 * Klasser, moduler eller värden
 * Kan näslas
 
-!SLIDE smaller
+!SLIDE small
 
 ## Börjar alltid med stor bokstav
 ### MyConstant
 ### MY_CONSTANT
 
-!SLIDE smaller
+!SLIDE small
 
 ## Klasser, moduler eller värden
 
@@ -36,9 +36,9 @@
     @@@ ruby
     MY_CONSTANT = 1
 
-!SLIDE smaller
+!SLIDE small
 
-## Kan näslas
+## Kan nässlas
 
     @@@ ruby
     class Animal
@@ -47,13 +47,13 @@
 
     Animal::NUMBER_OF_SPECIES # => 8700000
 
-!SLIDE smaller
+!SLIDE small
 # Klassdefinition (tillbaka)
     @@@ ruby
     class Animal
     end
 
-!SLIDE smaller
+!SLIDE small
 # Instansiering
     @@@ ruby
     class Animal
@@ -61,7 +61,7 @@
 
     animal = Animal.new
 
-!SLIDE smaller
+!SLIDE small
 # Instansiering
     @@@ ruby
     class Animal
@@ -70,14 +70,14 @@
     animal = Animal.new
     animal # => #<Animal:0x007fd5fc110560>
 
-!SLIDE smaller
+!SLIDE small
 
 # Lokala variabler
 
 * Alltid snake_case
 * Scope
 
-!SLIDE smaller
+!SLIDE small
 
 ## snake_case
 ### Bra:
@@ -89,13 +89,13 @@
     @@@ ruby
     myVar = 42
 
-!SLIDE smaller
+!SLIDE small
 
 ## Scope
 
 Scope avgränsas nyckelorden class, module, def samt block syntax
 
-!SLIDE smaller
+!SLIDE small
 ## Scope
     @@@ ruby
     foo = "foo"
@@ -112,7 +112,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     foo
     bar
 
-!SLIDE smaller
+!SLIDE small
 ## Scope
     @@@ ruby
     foo = "foo"
@@ -129,7 +129,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     foo # => "foo"
     bar # => undefined local variable or method `bar' for main:Object .....
 
-!SLIDE smaller
+!SLIDE small
 ## Scope
     @@@ ruby
     foo = "foo"
@@ -142,7 +142,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     foo
     bar
 
-!SLIDE smaller
+!SLIDE small
 ## Scope
     @@@ ruby
     foo = "foo"
@@ -155,7 +155,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     foo # => "foo2"
     bar
 
-!SLIDE smaller
+!SLIDE small
 ## Scope
     @@@ ruby
     foo = "foo"
@@ -168,7 +168,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     foo # => "foo2"
     bar # => "bar"
 
-!SLIDE smaller
+!SLIDE small
 ## Scope
     @@@ ruby
     foo = "foo"
@@ -181,7 +181,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     foo
     bar
 
-!SLIDE smaller
+!SLIDE small
 ## Scope
     @@@ ruby
     foo = "foo"
@@ -194,7 +194,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     foo # => "foo"
     bar
 
-!SLIDE smaller
+!SLIDE small
 ## Scope
     @@@ ruby
     foo = "foo"
@@ -207,7 +207,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     foo # => "foo"
     bar # => nil
 
-!SLIDE smaller
+!SLIDE small
 ## Scope
     @@@ ruby
     foo = "foo"
@@ -219,7 +219,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     foo # => "foo"
     bar
 
-!SLIDE smaller
+!SLIDE small
 ## Scope
     @@@ ruby
     foo = "foo"
@@ -231,7 +231,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     foo # => "foo"
     bar # => undefined local variable or method `bar' for ...
 
-!SLIDE smaller
+!SLIDE small
 # Instansiering (tillbaka)
     @@@ ruby
     class Animal
@@ -240,7 +240,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     animal = Animal.new
     animal # => #<Animal:0x007fd5fc110560>
 
-!SLIDE smaller
+!SLIDE small
 # Instansmetod
     @@@ ruby
     class Animal
@@ -252,7 +252,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     animal = Animal.new
     animal.sound
 
-!SLIDE smaller
+!SLIDE small
 # Instansmetod
     @@@ ruby
     class Animal
@@ -264,7 +264,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     animal = Animal.new # => #<Animal:0x007fd5fc110560>
     animal.sound # => "grymt!"
 
-!SLIDE execute smaller
+!SLIDE execute small
 # Subklass
 ## (med arv och överskuggning)
     @@@ ruby
@@ -277,7 +277,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     dog = Dog.new
     dog.sound
 
-!SLIDE smaller
+!SLIDE small
 # Subklass
 ## (med arv och överskuggning)
     @@@ ruby
@@ -290,7 +290,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     dog = Dog.new # => #<Dog:0x007fd5fc110560>
     dog.sound # => "VOFF!"
 
-!SLIDE smaller
+!SLIDE small
 # Subklass
 ## (konstruktor och instansvariabel)
     @@@ ruby
@@ -311,7 +311,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     animal.sound
     animal.owner
 
-!SLIDE smaller
+!SLIDE small
 # Subklass
 ## (konstruktor och instansvariabel)
     @@@ ruby
@@ -332,7 +332,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     animal.sound # => "VOFF!"
     animal.owner # => "Micke"
 
-!SLIDE smaller
+!SLIDE small
 
 # Instansvariabler
 
@@ -341,12 +341,12 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 * Visibility
 * Scope
 
-!SLIDE smaller
+!SLIDE small
 ## Prefixas med @
     @@@ ruby
     @foo = bar
 
-!SLIDE smaller
+!SLIDE small
 
 ## snake_case
 ### Bra:
@@ -358,7 +358,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     @@@ ruby
     @myVar = 42
 
-!SLIDE smaller
+!SLIDE small
 ## Visibility
     @@@ ruby
     class Animal
@@ -369,7 +369,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 
     Animal.new.sound
 
-!SLIDE smaller
+!SLIDE small
 ## Visibility
     @@@ ruby
     class Animal
@@ -380,7 +380,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 
     Animal.new.sound # undefined method `sound' for #<Animal:0x007fb9a...
 
-!SLIDE smaller
+!SLIDE small
 ## Visibility
     @@@ ruby
     class Animal
@@ -395,7 +395,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 
     Animal.new.sound
 
-!SLIDE smaller
+!SLIDE small
 ## Visibility
     @@@ ruby
     class Animal
@@ -410,7 +410,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 
     Animal.new.sound # => "morr"
 
-!SLIDE smaller
+!SLIDE small
 ## Scope
     @@@ ruby
     class Animal
@@ -421,7 +421,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 
     Animal.new.sound
 
-!SLIDE smaller
+!SLIDE small
 ## Scope
     @@@ ruby
     class Animal
@@ -432,7 +432,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 
     Animal.new.sound # => nil
 
-!SLIDE smaller
+!SLIDE small
 ## Scope
     @@@ ruby
     class Animal
@@ -445,7 +445,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
       end
     end
 
-!SLIDE smaller
+!SLIDE small
 # Subklass
 ## Konstruktor och instansvariabel (tillbaka)
     @@@ ruby
@@ -466,7 +466,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     dog.sound # => "VOFF!"
     dog.owner # => "Micke"
 
-!SLIDE smaller
+!SLIDE small
 # Subklass
 ## Anrop till basklass metod
     @@@ ruby
@@ -490,7 +490,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     tax.owner
     tax.name
 
-!SLIDE smaller
+!SLIDE small
 # Subklass
 ## Anrop till basklass metod
     @@@ ruby
@@ -514,20 +514,20 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     tax.owner # => "Micke"
     tax.name # => "Max"
 
-!SLIDE smaller
+!SLIDE small
 # Då har vi grunderna
 
-!SLIDE smaller
+!SLIDE small
 # Låt oss gå vidare
 
-!SLIDE smaller
+!SLIDE small
 
 # Klassmetoder
 
-!SLIDE smaller
+!SLIDE small
 # Animal.new
 
-!SLIDE smaller
+!SLIDE small
     @@@ ruby
     class Animal
       def self.common_sounds
@@ -537,7 +537,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 
     Animal.common_sounds
 
-!SLIDE smaller
+!SLIDE small
     @@@ ruby
     class Animal
       def self.common_sounds
@@ -547,7 +547,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 
     Animal.common_sounds # => ["VOFF", "Mjau", "Grymt", "Bää"]
 
-!SLIDE smaller
+!SLIDE small
     @@@ ruby
     class Animal
       def self.common_sounds
@@ -560,7 +560,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 
     Dog.common_sounds
 
-!SLIDE smaller
+!SLIDE small
     @@@ ruby
     class Animal
       def self.common_sounds
@@ -573,10 +573,10 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 
     Dog.common_sounds # => ["VOFF", "Mjau", "Grymt", "Bää"]
 
-!SLIDE smaller
+!SLIDE small
 # Öppna klasser
 
-!SLIDE smaller
+!SLIDE small
     @@@ ruby
     class Animal
     end
@@ -584,7 +584,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     animal = Animal.new
     animal.sound
 
-!SLIDE smaller
+!SLIDE small
 
     @@@ ruby
     class Animal
@@ -593,7 +593,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     animal = Animal.new
     animal.sound # = undefined method `sound' for #<Animal:0x007...
 
-!SLIDE smaller
+!SLIDE small
     @@@ ruby
     class Animal
     end
@@ -607,7 +607,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     animal = Animal.new
     animal.sound
 
-!SLIDE smaller
+!SLIDE small
     @@@ ruby
     class Animal
     end
@@ -621,7 +621,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     animal = Animal.new
     animal.sound # => "Mjau"
 
-!SLIDE smaller
+!SLIDE small
     @@@ ruby
     class Animal
     end
@@ -634,7 +634,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 
     animal.sound
 
-!SLIDE smaller
+!SLIDE small
     @@@ ruby
     class Animal
     end
@@ -647,7 +647,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 
     animal.sound # => "Mjau"
 
-!SLIDE smaller
+!SLIDE small
     @@@ ruby
     class Animal
     end
@@ -658,7 +658,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 
     Animal.common_sounds
 
-!SLIDE smaller
+!SLIDE small
     @@@ ruby
     class Animal
     end
@@ -669,42 +669,42 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 
     Animal.common_sounds # => ["VOFF", "Mjau", "Grymt", "Bää"]
 
-!SLIDE smaller
+!SLIDE small
 # Ner på djupet
 
-!SLIDE smaller
+!SLIDE small
 # #class
 
-!SLIDE smaller
+!SLIDE small
 # #class
 ## Returns the class of obj
 
-!SLIDE smaller
+!SLIDE small
     @@@ ruby
     "VOFF".class
 
-!SLIDE smaller
+!SLIDE small
     @@@ ruby
     "VOFF".class # => String
 
-!SLIDE smaller
+!SLIDE small
     @@@ ruby
     "VOFF".class # => String
     animal.class
 
-!SLIDE smaller
+!SLIDE small
     @@@ ruby
     "VOFF".class # => String
     animal.class # => Animal
 
-!SLIDE smaller
+!SLIDE small
 
     @@@ ruby
     "VOFF".class # => String
     animal.class # => Animal
     dog.class # => Dog
 
-!SLIDE smaller
+!SLIDE small
 
     @@@ ruby
     "VOFF".class # => String
@@ -715,7 +715,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     @@@ ruby
     Tax.class
 
-!SLIDE smaller
+!SLIDE small
 
     @@@ ruby
     "VOFF".class # => String
@@ -726,42 +726,42 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     @@@ ruby
     Tax.class # => Class
 
-!SLIDE smaller center
+!SLIDE small center
 ## Översikt
 ![Ruby](http://skilldrick.co.uk/wp-content/uploads/2011/08/Ruby.png)
 ### http://skilldrick.co.uk/wp-content/uploads/2011/08/Ruby.png
 
-!SLIDE smaller
+!SLIDE small
 ## "Classes in Ruby are first-class objects - each is an instance of class Class"
 
-!SLIDE smaller
+!SLIDE small
 # Klassmetod
 
-!SLIDE smaller
+!SLIDE small
 # Klassmetod?
 ## ==
 # instansmetod i instanser av klassen Class
 
-!SLIDE smaller
+!SLIDE small
 # Singletonklass
 ##(aka Metaclass, Shadowclass, Eigenclass)
 
-!SLIDE smaller
+!SLIDE small
 
 ## Alla objekt i ruby har en singletonklass associerad till sig
 
-!SLIDE smaller
+!SLIDE small
 
 ## Alla objekt i ruby har en singletonklass associerad till sig
 ## som inte existerar
 
-!SLIDE smaller
+!SLIDE small
 
 ## Alla objekt i ruby har en singletonklass associerad till sig
 ## som inte existerar
 ## förrän den refereras
 
-!SLIDE smaller
+!SLIDE small
     @@@ ruby
     class Animal
     end
@@ -771,7 +771,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     Animal.singleton_class
     animal.singleton_class
 
-!SLIDE smaller
+!SLIDE small
     @@@ ruby
     class Animal
     end
@@ -781,7 +781,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     Animal.singleton_class # => #<Class:Animal>
     animal.singleton_class # => #<Class:#<Animal:0x007fe53a28c5e0>>
 
-!SLIDE smaller
+!SLIDE small
     @@@ ruby
     class Animal
     end
@@ -796,7 +796,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     animal1.sound
     animal2.sound
 
-!SLIDE smaller
+!SLIDE small
     @@@ ruby
     class Animal
     end
@@ -811,7 +811,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     animal1.sound # => "Mjau"
     animal2.sound # => undefined method `sound' for #<Animal:0x007...
 
-!SLIDE smaller
+!SLIDE small
     @@@ ruby
     class Animal
     end
@@ -826,7 +826,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     animal1.singleton_class.instance_methods(false)
     animal2.singleton_class.instance_methods(false)
 
-!SLIDE smaller
+!SLIDE small
     @@@ ruby
     class Animal
     end
@@ -841,7 +841,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     animal1.singleton_class.instance_methods(false) # => [:sound]
     animal2.singleton_class.instance_methods(false) # => []
 
-!SLIDE smaller
+!SLIDE small
     @@@ ruby
     class Animal
       def self.common_sounds
@@ -851,7 +851,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 
     Animal.singleton_class.instance_methods(false)
 
-!SLIDE smaller
+!SLIDE small
     @@@ ruby
     class Animal
       def self.common_sounds
@@ -861,23 +861,23 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 
     Animal.singleton_class.instance_methods(false) # => [:common_sounds]
 
-!SLIDE smaller
+!SLIDE small
 # Moduler
 
-!SLIDE smaller
+!SLIDE small
 ## En modul
     @@@ ruby
     module Animals
     end
 
-!SLIDE smaller
+!SLIDE small
 ## Användningsområden
 
 * Namespacing
 * Composition
 * Extending
 
-!SLIDE smaller
+!SLIDE small
 ## Namespacing (klass)
 
     @@@ ruby
@@ -886,7 +886,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
       end
     end
 
-!SLIDE smaller
+!SLIDE small
 ## Namespacing (klass)
 
     @@@ ruby
@@ -897,7 +897,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 
     dog = Animals::Dog.new # => #<Animals::Dog:0x007fb31c0ac950>
 
-!SLIDE smaller
+!SLIDE small
 ## Namespacing (metod)
     @@@ ruby
     module Animals
@@ -906,7 +906,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
       end
     end
 
-!SLIDE smaller
+!SLIDE small
 ## Namespacing (metod)
     @@@ ruby
     module Animals
@@ -917,7 +917,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 
     Animals.common_sounds # => ["VOFF", "Mjau", "Grymt", "Bää"]
 
-!SLIDE smaller
+!SLIDE small
 ## Composition (mixin)
     @@@ ruby
     def common_sounds
@@ -931,7 +931,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     class Zoo
     end
 
-!SLIDE smaller
+!SLIDE small
 ## Composition (mixin)
     @@@ ruby
     module AnimalSounds
@@ -952,7 +952,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     Farm.new.common_sounds
     Zoo.new.common_sounds
 
-!SLIDE smaller
+!SLIDE small
 ## Composition (mixin)
     @@@ ruby
     module AnimalSounds
@@ -973,7 +973,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     Farm.new.common_sounds # => ["VOFF", "Mjau", "Grymt", "Bää"]
     Zoo.new.common_sounds # => ["VOFF", "Mjau", "Grymt", "Bää"]
 
-!SLIDE smaller
+!SLIDE small
 ## Composition (multiple mixins)
     @@@ ruby
     module AnimalSounds
@@ -997,7 +997,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 
     Zoo.new.common_sounds
 
-!SLIDE smaller
+!SLIDE small
 ## Composition (multiple mixins)
     @@@ ruby
     module AnimalSounds
@@ -1021,7 +1021,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 
     Zoo.new.common_sounds # => Titta där!, Jag vill gå hem!, Mata ej tapiren!
 
-!SLIDE smaller
+!SLIDE small
 ## Composition (multiple mixins)
     @@@ ruby
     module AnimalSounds
@@ -1045,7 +1045,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 
     Zoo.new.common_sounds
 
-!SLIDE smaller
+!SLIDE small
 ## Composition (multiple mixins)
     @@@ ruby
     module AnimalSounds
@@ -1071,7 +1071,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     # => ["VOFF", "Mjau", "Grymt", "Bää", "Titta där!", "Jag vill gå hem",
     #     "Mata ej tapiren!"]
 
-!SLIDE smaller
+!SLIDE small
 ## Interface
     @@@ ruby
     class Animal
@@ -1087,7 +1087,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 
     puts Animal.new.sort
 
-!SLIDE smaller
+!SLIDE small
 ## Interface
     @@@ ruby
     class Animal
@@ -1103,7 +1103,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 
     puts Animal.new.sort # => Bää Grymt Mjau Voff
 
-!SLIDE smaller
+!SLIDE small
 ## Extending
     @@@ ruby
     module AnimalSounds
@@ -1118,7 +1118,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 
     Animal.common_sounds
 
-!SLIDE smaller
+!SLIDE small
 ## Extending
     @@@ ruby
     module AnimalSounds
@@ -1133,7 +1133,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 
     Animal.common_sounds # => ["VOFF", "Mjau", "Grymt", "Bää"]
 
-!SLIDE smaller
+!SLIDE small
 ## Extending
     @@@ ruby
     module AnimalSounds
@@ -1149,7 +1149,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 
     end
 
-!SLIDE smaller
+!SLIDE small
 ## Extending
     @@@ ruby
     module AnimalSounds
@@ -1166,50 +1166,50 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
       # ...
     end
 
-!SLIDE smaller
+!SLIDE small
 ## Fler variabeltyper
 
-!SLIDE smaller
+!SLIDE small
 ## Fler variabeltyper
 ### (som knappt inte används)
 
-!SLIDE smaller
+!SLIDE small
 ## Fler variabeltyper
 ### (som knappt inte används)
 
 * Globala variabler
 * Klassvariabler
 
-!SLIDE smaller
+!SLIDE small
 ## Globala variabler
     @@@ ruby
     $foo = "bar"
     $foo
 
-!SLIDE smaller
+!SLIDE small
 ## Globala variabler
     @@@ ruby
     $foo = "bar"
     $foo # => bar
 
-!SLIDE smaller
+!SLIDE small
 ## Globala variabler
     @@@ ruby
     $foo
 
-!SLIDE smaller
+!SLIDE small
 ## Globala variabler
     @@@ ruby
     $foo # => nil
 
-!SLIDE smaller
+!SLIDE small
 ## Globala variabler
     @@@ ruby
     $$ # PID
     $? # Exit status of last executed child process
     $0 # The name of the ruby script file
 
-!SLIDE smaller
+!SLIDE small
 ## Klassvariabler
     @@@ ruby
     class Animal
@@ -1222,7 +1222,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 
     Animal.sound
 
-!SLIDE smaller
+!SLIDE small
 ## Klassvariabler
     @@@ ruby
     class Animal
@@ -1235,7 +1235,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 
     Animal.sound # => Oidentifierbart
 
-!SLIDE smaller
+!SLIDE small
 ## Klassvariabler
     @@@ ruby
     class Animal
@@ -1251,7 +1251,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 
     Dog.sound
 
-!SLIDE smaller
+!SLIDE small
 ## Klassvariabler
     @@@ ruby
     class Animal
@@ -1267,7 +1267,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 
     Dog.sound # => Oidentifierbart
 
-!SLIDE smaller
+!SLIDE small
 ## Klassvariabler
     @@@ ruby
     class Animal
@@ -1284,7 +1284,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 
     Dog.sound
 
-!SLIDE smaller
+!SLIDE small
 ## Klassvariabler
     @@@ ruby
     class Animal
@@ -1301,7 +1301,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
 
     Dog.sound # => VOFF!
 
-!SLIDE smaller
+!SLIDE small
 ## Klassvariabler
     @@@ ruby
     class Animal
@@ -1319,7 +1319,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     Dog.sound # => VOFF!
     Animal.sound
 
-!SLIDE smaller
+!SLIDE small
 ## Klassvariabler
     @@@ ruby
     class Animal
