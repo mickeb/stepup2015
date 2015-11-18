@@ -3,7 +3,6 @@
 
 !SLIDE small
 # Låt oss börja från grunden
-## (men gå fort fram)
 
 !SLIDE small
 # Klassdefinition
@@ -229,7 +228,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     end
 
     foo # => "foo"
-    bar # => undefined local variable or method `bar' for ...
+    bar # => undefined local variable or method \`bar' for ...
 
 !SLIDE small
 # Instansiering (tillbaka)
@@ -515,6 +514,249 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     tax.name # => "Max"
 
 !SLIDE small
+# Synlighet/Inkapsling
+
+!SLIDE small
+## Synlighet/Inkapsling
+* public
+* private
+* protected
+
+!SLIDE small
+## Synlighet/Inkapsling
+
+    @@@ ruby
+    class Animal
+      def puplic_metod
+        # ...
+      end
+
+      private
+
+      def private_method
+      # ...
+      end
+
+      protected
+
+      def protected_method
+        # ...
+      end
+
+      public
+
+      def puplic_metod2
+        # ...
+      end      
+    end
+
+!SLIDE small
+## Synlighet/Inkapsling
+### private
+
+    @@@ ruby
+    class Animal
+
+      def sound
+        fetch_from_db
+      end
+
+      private
+
+      def fetch_from_db
+        "mjau!"
+      end
+    end
+
+    Animal.new.fetch_from_db
+    Animal.new.sound
+
+!SLIDE small
+## Synlighet/Inkapsling
+### private
+
+    @@@ ruby
+    class Animal
+
+      def sound
+        fetch_from_db
+      end
+
+      private
+
+      def fetch_from_db
+        "mjau!"
+      end
+    end
+
+    Animal.new.fetch_from_db
+    # => private method `mjau' called for #<Animal:0x0
+    Animal.new.sound
+
+!SLIDE small
+## Synlighet/Inkapsling
+### private
+
+    @@@ ruby
+    class Animal
+
+      def sound
+        fetch_from_db
+      end
+
+      private
+
+      def fetch_from_db
+        "mjau!"
+      end
+    end
+
+    Animal.new.fetch_from_db
+    # => private method `mjau' called for #<Animal:0x0
+    Animal.new.sound
+    # => "mjau!"
+
+!SLIDE small
+## Synlighet/Inkapsling
+### private
+
+    @@@ ruby
+    class Animal
+
+      def sound
+        self.fetch_from_db
+      end
+
+      private
+
+      def fetch_from_db
+        "mjau!"
+      end
+    end
+
+    Animal.new.sound
+
+!SLIDE small
+## Synlighet/Inkapsling
+### private
+
+    @@@ ruby
+    class Animal
+
+      def sound
+        self.fetch_from_db
+      end
+
+      private
+
+      def fetch_from_db
+        "mjau!"
+      end
+    end
+
+    Animal.new.sound
+    # => private method `fetch_from_db' called for #<Ani...
+
+!SLIDE smaller
+## Synlighet/Inkapsling
+### protected
+    @@@ ruby
+    class Animal
+      protected
+      def eaten_by_other_animal(animal)
+        puts "I (#{self}) was eaten by #{animal}"
+      end
+    end
+
+    class Lion < Animal
+      def eat(animal)
+        animal.eaten_by_other_animal(self)
+      end
+    end
+
+    class Human
+      def eat(animal)
+        animal.eaten_by_other_animal(self)
+      end
+    end
+
+    class Zebra < Animal; end
+
+    lion = Lion.new
+    zebra = Zebra.new
+    human = Human.new
+
+    lion.eat(zebra)
+    human.eat(zebra)
+
+!SLIDE smaller
+## Synlighet/Inkapsling
+### protected
+    @@@ ruby
+    class Animal
+      protected
+      def eaten_by_other_animal(animal)
+        puts "I (#{self}) was eaten by #{animal}"
+      end
+    end
+
+    class Lion < Animal
+      def eat(animal)
+        animal.eaten_by_other_animal(self)
+      end
+    end
+
+    class Human
+      def eat(animal)
+        animal.eaten_by_other_animal(self)
+      end
+    end
+
+    class Zebra < Animal; end
+
+    lion = Lion.new
+    zebra = Zebra.new
+    human = Human.new
+
+    lion.eat(zebra)
+    # => I (#<Zebra:0x04...>) was eaten by #<Lion:0x01...>
+    human.eat(zebra)
+
+!SLIDE smaller
+## Synlighet/Inkapsling
+### protected
+    @@@ ruby
+    class Animal
+      protected
+      def eaten_by_other_animal(animal)
+        puts "I (#{self}) was eaten by #{animal}"
+      end
+    end
+
+    class Lion < Animal
+      def eat(animal)
+        animal.eaten_by_other_animal(self)
+      end
+    end
+
+    class Human
+      def eat(animal)
+        animal.eaten_by_other_animal(self)
+      end
+    end
+
+    class Zebra < Animal; end
+
+    lion = Lion.new
+    zebra = Zebra.new
+    human = Human.new
+
+    lion.eat(zebra)
+    # => I (#<Zebra:0x04...>) was eaten by #<Lion:0x01...>
+    human.eat(zebra)
+    # => protected method `eaten_by_other_animal' called for #<Zebra:0x0
+
+!SLIDE small
 # Då har vi grunderna
 
 !SLIDE small
@@ -591,7 +833,7 @@ Scope avgränsas nyckelorden class, module, def samt block syntax
     end
 
     animal = Animal.new
-    animal.sound # = undefined method `sound' for #<Animal:0x007...
+    animal.sound # = undefined method \`sound' for #<Animal:0x007...
 
 !SLIDE small
     @@@ ruby
