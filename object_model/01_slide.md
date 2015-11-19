@@ -782,10 +782,10 @@ Scope avgränsas av nyckelorden **class**, **module**, **def** samt **block synt
     Dog.common_sounds # => ["VOFF", "Mjau", "Grymt", "Bää"]
 
 !SLIDE small
-# Öppna klasser
+# Öppna klasser/instanser
 
 !SLIDE small
-## Öppna klasser
+## Öppna klasser/instanser
     @@@ ruby
     class Animal
     end
@@ -794,16 +794,17 @@ Scope avgränsas av nyckelorden **class**, **module**, **def** samt **block synt
     animal.sound
 
 !SLIDE small
-## Öppna klasser
+## Öppna klasser/instanser
     @@@ ruby
     class Animal
     end
 
     animal = Animal.new
-    animal.sound # = undefined method \`sound' for #<Animal:0x007...
+    animal.sound # = undefined method `sound' for #<Animal:0x007...
 
 !SLIDE small
-## Öppna klasser
+## Öppna klasser/instanser
+### Klass
     @@@ ruby
     class Animal
     end
@@ -818,7 +819,8 @@ Scope avgränsas av nyckelorden **class**, **module**, **def** samt **block synt
     animal.sound
 
 !SLIDE small
-## Öppna klasser
+## Öppna klasser/instanser
+### Klass
     @@@ ruby
     class Animal
     end
@@ -833,7 +835,8 @@ Scope avgränsas av nyckelorden **class**, **module**, **def** samt **block synt
     animal.sound # => "Mjau"
 
 !SLIDE small
-## Öppna klasser
+## Öppna klasser/instanser
+### Instans
     @@@ ruby
     class Animal
     end
@@ -847,7 +850,8 @@ Scope avgränsas av nyckelorden **class**, **module**, **def** samt **block synt
     animal.sound
 
 !SLIDE small
-## Öppna klasser
+## Öppna klasser/instanser
+### Instans
     @@@ ruby
     class Animal
     end
@@ -861,7 +865,8 @@ Scope avgränsas av nyckelorden **class**, **module**, **def** samt **block synt
     animal.sound # => "Mjau"
 
 !SLIDE small
-## Öppna klasser
+## Öppna klasser/instanser
+### Klassmetod
     @@@ ruby
     class Animal
     end
@@ -873,7 +878,8 @@ Scope avgränsas av nyckelorden **class**, **module**, **def** samt **block synt
     Animal.common_sounds
 
 !SLIDE small
-## Öppna klasser
+## Öppna klasser/instanser
+### Klassmetod
     @@@ ruby
     class Animal
     end

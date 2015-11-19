@@ -4,5 +4,5 @@ class Animal
     puts "hello"
   end
 
-  self.foo
+  foo
 end
